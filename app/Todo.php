@@ -19,6 +19,7 @@ class Todo extends Model
     // Fields that are allowed mass assignment
     protected $fillable = [
         'name',
+        'category_id',
         'status'
     ];
 
