@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Todo;
+use App\Http\Resources\TodoResource;
 use Illuminate\Http\Request;
 
 class TodoController extends Controller
@@ -13,7 +15,7 @@ class TodoController extends Controller
      */
     public function index()
     {
-        //
+        return response(TodoResource::collection(Todo::all(), 200));
     }
 
     /**

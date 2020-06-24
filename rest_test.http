@@ -1,2 +1,5 @@
 ### GET all categories
 http://localhost:8000/api/categories
+
+### GET all todos
+http://localhost:8000/api/todos
