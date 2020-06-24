@@ -9,6 +9,6 @@ $factory->define(Todo::class, function (Faker $faker) {
     return [
         'name' => $faker->sentence(4),
         'category_id' => rand(1, App\Category::count()),
-        'enum' => Todo::getPossibleEnumValues('status')[array_rand(Todo::getPossibleEnumValues('status'))]
+        'status' => Todo::getPossibleEnumValues('status')[array_rand(Todo::getPossibleEnumValues('status'))]
     ];
 });
