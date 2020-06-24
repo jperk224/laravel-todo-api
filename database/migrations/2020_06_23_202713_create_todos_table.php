@@ -18,6 +18,7 @@ class CreateTodosTable extends Migration
             $table->string('name');
             $table->enum('status', ['New', 'In Progress', 'Complete']);
             $table->timestamps();
+            $table->foreignId('category_id');
         });
     }
 
