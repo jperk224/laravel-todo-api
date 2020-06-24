@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+// use Illuminate\Database\Eloquent\Model;
 
-class Todo extends Model
+class Todo extends BaseModel
 {
      /**
      * The table associated with the model.
