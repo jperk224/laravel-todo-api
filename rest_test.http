@@ -15,3 +15,21 @@ DELETE http://localhost:8000/api/todos/2
 
 ### DELETE a category
 DELETE http://localhost:8000/api/categories/4
+
+### POST a new todo
+POST http://localhost:8000/api/todos
+Content-Type: application/json
+
+{
+    "name": "New Todo",
+    "category_id": 2,
+    "status": "In Progress"
+}
+
+### POST a new category
+POST http://localhost:8000/api/categories
+Content-Type: application/json
+
+{
+    "category": "New Category"
+}

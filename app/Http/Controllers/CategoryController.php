@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Http\Resources\CategoryResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
@@ -26,7 +27,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate the request
+        $validate = Validator::make($request->toArray(), [
+            'category' => 'required',
+        ]);
+
+        if ($validate->fails()) {
+            return response($validate->errors(), 400);
+        }
+
+        // if validation passes, create a new category from the validated
+        // data and return it
+        return response(new CategoryResource(Category::create($validate->validate())), 201);
     }
 
     /**
