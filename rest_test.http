@@ -1,5 +1,17 @@
+### GET all todos
+http://localhost:8000/api/todos
+
 ### GET all categories
 http://localhost:8000/api/categories
 
-### GET all todos
-http://localhost:8000/api/todos
+### GET a single todo
+http://localhost:8000/api/todos/5
+
+### GET a single category
+http://localhost:8000/api/categories/4
+
+### DELETE a todo
+DELETE http://localhost:8000/api/todos/2
+
+### DELETE a category
+DELETE http://localhost:8000/api/categories/4

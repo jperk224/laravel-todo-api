@@ -32,12 +32,12 @@ class TodoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Todo $todo
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Todo $todo)
     {
-        //
+        return response(new TodoResource($todo), 200);
     }
 
     /**
@@ -55,11 +55,12 @@ class TodoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Todo $todo
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Todo $todo)
     {
-        //
+        $todo->delete();
+        return response(null, 204);
     }
 }
