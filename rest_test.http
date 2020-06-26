@@ -33,3 +33,19 @@ Content-Type: application/json
 {
     "category": "New Category"
 }
+
+### PATCH a category
+PATCH http://localhost:8000/api/categories/4
+Content-Type: application/json
+
+{
+    "category": "PUT Test"
+}
+
+### PUT a category
+PUT http://localhost:8000/api/categories/4
+Content-Type: application/json
+
+{
+    "category": "New 4"
+}

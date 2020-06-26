@@ -56,12 +56,23 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Category $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        // Validate the request
+        $validate = Validator::make($request->toArray(), [
+            'category' => 'required',
+        ]);
+
+        if ($validate->fails()) {
+            return response($validate->errors(), 400);
+        }
+
+        // if validation passes update the category and return it
+        $category->update($validate->validate());
+        return response(new CategoryResource($category), 201);
     }
 
     /**
