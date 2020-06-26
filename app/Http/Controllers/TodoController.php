@@ -38,7 +38,7 @@ class TodoController extends Controller
             return response($validate->errors(), 400);
         }
 
-        // if validation passes, create a new category from the validated
+        // if validation passes, create a new todo from the validated
         // data and return it
         return response(new TodoResource(Todo::create($validate->validate())), 201);
     }
@@ -58,12 +58,25 @@ class TodoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Todo $todo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Todo $todo)
     {
-        //
+        // Validate the request
+        $validate = Validator::make($request->toArray(), [
+            'name' => 'required',
+            'category_id' => 'required',
+            'status' => 'required',
+        ]);
+
+        if ($validate->fails()) {
+            return response($validate->errors(), 400);
+        }
+
+        // if validation passes, update to todo and return it
+        $todo->update($validate->validate());
+        return response(new TodoResource($todo), 201);
     }
 
     /**

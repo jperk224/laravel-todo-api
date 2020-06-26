@@ -21,7 +21,7 @@ POST http://localhost:8000/api/todos
 Content-Type: application/json
 
 {
-    "name": "New Todo",
+    "name": "New Todo 27",
     "category_id": 2,
     "status": "In Progress"
 }
@@ -31,7 +31,15 @@ POST http://localhost:8000/api/categories
 Content-Type: application/json
 
 {
-    "category": "New Category"
+    "category": "New Category 6"
+}
+
+### PATCH a Todo
+PATCH http://localhost:8000/api/todos/2
+Content-Type: application/json
+
+{
+    "name": "PATCH Test"
 }
 
 ### PATCH a category
@@ -40,6 +48,16 @@ Content-Type: application/json
 
 {
     "category": "PUT Test"
+}
+
+### PUT a Todo
+PUT http://localhost:8000/api/todos/2
+Content-Type: application/json
+
+{
+    "name": "PUT Test",
+    "category_id": 3,
+    "status": "In Progress"
 }
 
 ### PUT a category
